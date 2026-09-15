@@ -862,33 +862,160 @@ table{border-collapse:collapse;width:100%;font-size:12px}th,td{border:1px solid 
 #beranda .hero-pyth-actions{display:none;justify-content:center;align-items:center;margin-top:12px}
 #beranda .beranda-start{border:0;border-radius:999px;padding:11px 20px;background:#1767c9;color:#fff;font-weight:900;box-shadow:0 8px 20px rgba(23,103,201,.22)}
 #beranda .beranda-start:hover{transform:translateY(-1px)}
+#beranda .hero-mobile-copy{display:none}
+
 @media(max-width:760px){
   #beranda.home-panel{
     padding:8px!important;
-    background:linear-gradient(180deg,#eef5fb,#f8fbff);
+    min-height:calc(100dvh - 118px);
+    background:linear-gradient(180deg,#eef5fb 0%,#f8fbff 100%);
+    overflow:hidden;
   }
+
   #beranda .hero-pyth-card{
     width:100%;
-    aspect-ratio:4/3;
-    min-height:0;
+    height:calc(100dvh - 134px);
+    min-height:560px;
+    max-height:760px;
+    aspect-ratio:auto;
     border-radius:18px;
     background:#123a69;
+    box-shadow:0 14px 34px rgba(12,37,70,.18);
   }
+
   #beranda .hero-pyth-image{
     object-fit:cover;
-    object-position:center center;
+    object-position:72% center;
+    transform:scale(1.01);
   }
+
+  #beranda .hero-pyth-card::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    z-index:1;
+    pointer-events:none;
+    background:
+      linear-gradient(180deg,rgba(6,23,43,.05) 0%,rgba(6,23,43,.10) 30%,rgba(6,23,43,.70) 100%),
+      linear-gradient(90deg,rgba(6,23,43,.64) 0%,rgba(6,23,43,.20) 48%,rgba(6,23,43,.04) 78%);
+  }
+
   #beranda .hero-pyth-button{display:none}
-  #beranda .hero-pyth-actions{display:flex;margin-top:10px}
-  #beranda .beranda-start{width:100%;max-width:340px;padding:12px 20px}
+  #beranda .hero-pyth-actions{display:none}
+
+  #beranda .hero-mobile-copy{
+    display:flex;
+    position:absolute;
+    inset:0;
+    z-index:2;
+    flex-direction:column;
+    justify-content:flex-end;
+    align-items:flex-start;
+    padding:20px 18px 22px;
+    color:#fff;
+    text-align:left;
+    pointer-events:none;
+  }
+
+  #beranda .hero-mobile-badge{
+    display:inline-flex;
+    align-items:center;
+    width:max-content;
+    max-width:100%;
+    padding:7px 10px;
+    margin-bottom:12px;
+    border-radius:999px;
+    background:rgba(255,255,255,.16);
+    border:1px solid rgba(255,255,255,.20);
+    backdrop-filter:blur(5px);
+    -webkit-backdrop-filter:blur(5px);
+    font-size:11px;
+    line-height:1.2;
+    font-weight:850;
+    letter-spacing:.01em;
+  }
+
+  #beranda .hero-mobile-title{
+    margin:0;
+    font-size:clamp(30px,8.6vw,42px);
+    line-height:.96;
+    font-weight:1000;
+    letter-spacing:-.035em;
+    text-shadow:0 3px 12px rgba(0,0,0,.28);
+  }
+
+  #beranda .hero-mobile-topic{
+    margin-top:11px;
+    font-size:15px;
+    line-height:1.15;
+    font-weight:1000;
+    letter-spacing:.02em;
+  }
+
+  #beranda .hero-mobile-sub{
+    margin-top:4px;
+    max-width:94%;
+    font-size:11.5px;
+    line-height:1.4;
+    font-weight:750;
+    color:rgba(255,255,255,.94);
+  }
+
+  #beranda .hero-mobile-start{
+    pointer-events:auto;
+    width:100%;
+    min-height:48px;
+    margin-top:16px;
+    border:0;
+    border-radius:15px;
+    padding:12px 18px;
+    background:#ffd84f;
+    color:#3b2b00;
+    font-size:15px;
+    font-weight:1000;
+    box-shadow:0 10px 24px rgba(0,0,0,.20);
+    cursor:pointer;
+  }
+
+  #beranda .hero-mobile-desc{
+    margin-top:13px;
+    max-width:96%;
+    font-size:11px;
+    line-height:1.45;
+    font-weight:650;
+    color:rgba(255,255,255,.92);
+    text-shadow:0 2px 8px rgba(0,0,0,.35);
+  }
 }
+
 @media(max-width:480px){
+  #beranda.home-panel{
+    padding:6px!important;
+  }
   #beranda .hero-pyth-card{
-    aspect-ratio:5/4;
+    height:calc(100dvh - 126px);
+    min-height:540px;
+    border-radius:16px;
   }
   #beranda .hero-pyth-image{
-    object-position:center center;
+    object-position:73% center;
   }
+  #beranda .hero-mobile-copy{
+    padding:18px 16px 20px;
+  }
+  #beranda .hero-mobile-title{
+    font-size:clamp(29px,9.2vw,39px);
+  }
+}
+
+@media(max-width:380px){
+  #beranda .hero-pyth-card{
+    min-height:515px;
+  }
+  #beranda .hero-mobile-badge{font-size:10px}
+  #beranda .hero-mobile-topic{font-size:14px}
+  #beranda .hero-mobile-sub{font-size:10.8px}
+  #beranda .hero-mobile-desc{font-size:10.4px}
 }
 
 
@@ -968,6 +1095,15 @@ table{border-collapse:collapse;width:100%;font-size:12px}th,td{border:1px solid 
   <div class="hero-pyth-card" aria-label="Beranda Teorema Pythagoras bersama Ibu Guru dan murid MTs bernuansa Papua">
     <img class="hero-pyth-image" src="https://i.imgur.com/qGBhZj0.png" alt="Beranda Teorema Pythagoras bersama Ibu Guru dan murid MTs bernuansa Papua" />
     <button class="hero-pyth-button" type="button" onclick="goTab('pemantik')" aria-label="Mulai Menyelidiki"></button>
+
+    <div class="hero-mobile-copy" aria-hidden="true">
+      <div class="hero-mobile-badge">◆ Fase D · SMP/MTs · Laboratorium Virtual</div>
+      <div class="hero-mobile-title">LABORATORIUM VIRTUAL<br>MATEMATIKA</div>
+      <div class="hero-mobile-topic">TEOREMA PYTHAGORAS</div>
+      <div class="hero-mobile-sub">Pembuktian melalui Pendekatan Luas Sisi · Fase D</div>
+      <button class="hero-mobile-start" type="button" onclick="goTab('pemantik')">Mulai Menyelidiki →</button>
+      <div class="hero-mobile-desc">Selidiki hubungan luas persegi pada sisi-sisi segitiga siku-siku melalui simulasi, lembar kerja, dan kuis interaktif.</div>
+    </div>
   </div>
   <div class="hero-pyth-actions">
     <button class="beranda-start" type="button" onclick="goTab('pemantik')">Mulai Menyelidiki →</button>
