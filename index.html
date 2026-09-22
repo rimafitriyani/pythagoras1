@@ -824,6 +824,109 @@ table{border-collapse:collapse;width:100%;font-size:12px}th,td{border:1px solid 
   .integration{grid-template-columns:1fr!important}
 }
 
+
+/* ===== V40: Mobile Data Collection + posisi slider tepat di bawah simulasi ===== */
+.data-table-wrap{
+  width:100%;
+  max-width:100%;
+  overflow-x:auto;
+  overflow-y:hidden;
+  -webkit-overflow-scrolling:touch;
+  overscroll-behavior-x:contain;
+  border-radius:10px;
+}
+
+@media(max-width:760px){
+  /* Slider dipindah via JS tepat sesudah gambar simulasi. */
+  #simulasi #triangleControls{
+    width:100%;
+    max-width:100%;
+    margin:10px 0 0!important;
+    padding:11px!important;
+    border-radius:14px;
+  }
+  #simulasi #triangleControls > p{
+    margin-bottom:6px!important;
+  }
+  #simulasi #triangleControls .slider-row{
+    margin:8px 0!important;
+  }
+  #simulasi #triangleControls .proof-actions{
+    margin-top:8px!important;
+  }
+
+  /* Data Collection harus selalu berada di dalam lebar layar HP. */
+  #lkm .data-table-wrap{
+    width:100%!important;
+    max-width:100%!important;
+    overflow-x:auto!important;
+    overflow-y:hidden!important;
+    -webkit-overflow-scrolling:touch!important;
+    border:1px solid #dbe5ee;
+    background:#fff;
+  }
+  #lkm .data-table-wrap .data-table{
+    width:100%!important;
+    min-width:0!important;
+    max-width:100%!important;
+    table-layout:fixed!important;
+    border-collapse:collapse;
+    font-size:10.5px!important;
+  }
+  #lkm .data-table-wrap .data-table th,
+  #lkm .data-table-wrap .data-table td{
+    min-width:0!important;
+    padding:4px 2px!important;
+    line-height:1.15!important;
+    white-space:normal!important;
+    overflow:hidden;
+    overflow-wrap:anywhere;
+  }
+  #lkm .data-table-wrap .data-table th:nth-child(1),
+  #lkm .data-table-wrap .data-table td:nth-child(1){width:8%}
+  #lkm .data-table-wrap .data-table th:nth-child(2),
+  #lkm .data-table-wrap .data-table td:nth-child(2),
+  #lkm .data-table-wrap .data-table th:nth-child(3),
+  #lkm .data-table-wrap .data-table td:nth-child(3){width:12%}
+  #lkm .data-table-wrap .data-table th:nth-child(4),
+  #lkm .data-table-wrap .data-table td:nth-child(4),
+  #lkm .data-table-wrap .data-table th:nth-child(5),
+  #lkm .data-table-wrap .data-table td:nth-child(5),
+  #lkm .data-table-wrap .data-table th:nth-child(6),
+  #lkm .data-table-wrap .data-table td:nth-child(6){width:14%}
+  #lkm .data-table-wrap .data-table th:nth-child(7),
+  #lkm .data-table-wrap .data-table td:nth-child(7){width:26%}
+  #lkm .data-table-wrap .data-table input{
+    display:block;
+    width:100%!important;
+    min-width:0!important;
+    max-width:100%!important;
+    box-sizing:border-box!important;
+    padding:5px 2px!important;
+    border-radius:6px!important;
+    font-size:10.5px!important;
+    text-align:center;
+  }
+  #lkm .data-collection-actions{
+    width:100%;
+    max-width:100%;
+    gap:7px;
+  }
+  #lkm .data-collection-actions .btn{
+    min-width:0;
+    white-space:normal;
+    line-height:1.25;
+  }
+}
+
+@media(max-width:380px){
+  #lkm .data-table-wrap .data-table{font-size:9.7px!important}
+  #lkm .data-table-wrap .data-table th,
+  #lkm .data-table-wrap .data-table td{padding:3px 1px!important}
+  #lkm .data-table-wrap .data-table input{font-size:9.7px!important;padding:4px 1px!important}
+  #simulasi #triangleControls{padding:9px!important}
+}
+
 @media(max-width:430px){
   :root{--fs-body:13px;--fs-card-title:15.5px;--fs-section-title:18px}
   .card{padding:12px!important}
@@ -1050,6 +1153,7 @@ table{border-collapse:collapse;width:100%;font-size:12px}th,td{border:1px solid 
 #simulasi .proof-stage svg{width:100%;height:100%;min-height:540px;display:block}
 #simulasi .save-lkm-btn{width:100%;justify-content:center;margin-top:10px;background:linear-gradient(135deg,#178356,#24a56a);color:#fff;border:none;box-shadow:0 8px 18px rgba(36,165,106,.18)}
 #simulasi .explore-note{font-size:14px;line-height:1.6;color:#60748b;margin:8px 0 0}
+#simulasi .proof-actions .btn{flex:1 1 150px;justify-content:center;text-align:center}
 #simulasi .mini-proof{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
 #simulasi .mini-proof div{min-height:76px;line-height:1.45}
 .quiz-print-btn{width:100%;justify-content:center;background:#b53030!important;color:#fff!important;margin-top:7px!important}
@@ -1079,6 +1183,12 @@ table{border-collapse:collapse;width:100%;font-size:12px}th,td{border:1px solid 
 }
 
 @media(max-width:520px){.data-collection-actions{flex-direction:column}.data-collection-actions .btn{width:100%;justify-content:center}}
+</style>
+
+<style id="v40-mobile-fixes">
+@media(max-width:760px){
+  #lkm .activity .data-table-wrap .data-table{min-width:0!important}
+}
 </style>
 </head>
 <body>
@@ -1198,11 +1308,11 @@ table{border-collapse:collapse;width:100%;font-size:12px}th,td{border:1px solid 
 <section class="panel" id="pemantik"><div class="grid2 pemantik-layout"><div class="card hero pemantik-card"><span class="badge yellow">✨ Masalah Kontekstual</span><h2>Tangga Rumah Kayu di Danau Sentani</h2><p>Di kawasan <b>Danau Sentani, Papua</b>, sebuah rumah kayu memiliki pintu utama di bagian depan, dengan tangga menuju teras yang tampak dari samping. Jika tinggi teras dari pijakan bawah adalah <b>1,5 m</b> dan jarak mendatar ke kaki tangga adalah <b>2 m</b>, berapakah <b>panjang tangga minimal yang dibutuhkan</b>?</p><div class="context-photo context-photo-natural"><img src="https://i.imgur.com/2xgauls.png" alt="Ilustrasi rumah panggung Papua di Danau Sentani dengan pintu depan dan tangga tampak dari samping" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/pemantik-backup.png'" />
 </div><div class="transition-callout callout"><b>Dari Tangga ke Model Matematika</b> Pada gambar, tinggi teras, jarak mendatar, dan tangga membentuk segitiga siku-siku. Agar situasi ini tidak langsung terasa abstrak, kita dapat memisalkan tinggi teras sebagai <b>a</b>, jarak mendatar sebagai <b>b</b>, dan panjang tangga sebagai <b>c</b>. Dari model inilah kita menyusun dugaan.</div><div class="activity"><h4>Pertanyaan pemantik</h4><p>Berdasarkan gambar, bagaimana cara menentukan <b>panjang tangga minimal yang dibutuhkan</b>? Setelah situasi tangga dimodelkan menjadi segitiga siku-siku, hubungan apa yang menurutmu dapat digunakan untuk mencari sisi yang belum diketahui?</p><textarea data-context-save="context" placeholder="Tuliskan ide awalmu..."></textarea></div></div><div class="card"><span class="proof-badge">Dugaan awal</span><h3>Dari masalah tangga ke dugaan</h3><p class="muted">Setelah situasi tangga dimodelkan, misalkan <b>a</b> menyatakan tinggi teras, <b>b</b> menyatakan jarak mendatar, dan <b>c</b> menyatakan panjang tangga. Sekarang, pilih hubungan yang menurutmu paling mungkin berlaku.</p><div class="guess-grid" id="initialGuess"><button class="choice-chip">a + b = c</button><button class="choice-chip">a² + b² = c²</button><button class="choice-chip">a² − b² = c²</button><button class="choice-chip">2a + 2b = c²</button></div><div id="guessFeedback" class="muted" style="font-size:12px;margin-top:9px">Pilih dugaan, lalu uji pada tab Eksplorasi melalui pendekatan luas sisi.</div><div class="callout" style="margin-top:14px"><b>Tantangan:</b> Gunakan hasil pengamatanmu untuk menjelaskan mengapa hubungan <b>a² + b² = c²</b> berlaku pada setiap segitiga siku-siku.</div></div></div></section>
 
-<section class="panel" id="simulasi"><div class="proof-layout"><div class="card"><div><span class="badge">📐 Eksplorasi Interaktif</span><h2 style="margin:8px 0 0">Eksplorasi Utama: Pendekatan Luas Sisi</h2><p class="muted" style="margin:6px 0 0">Geser slider untuk mengubah panjang sisi siku-siku <b>a</b> dan <b>b</b>. Nilainya tidak harus selalu bilangan bulat. Amati luas persegi pada ketiga sisi segitiga siku-siku untuk melihat apakah hubungan luasnya tetap konsisten.</p></div><div class="proof-stage" id="proofStage"><svg id="proofSvg" viewBox="0 0 920 700" preserveAspectRatio="xMidYMid meet" aria-label="Simulasi luas sisi Teorema Pythagoras"></svg></div><div class="control-card" style="margin-top:12px"><h4>Ringkasan bukti melalui luas</h4><div class="proof-summary-grid"><div class="proof-summary-item"><span class="proof-step">1</span><strong>Persegi pada sisi a</strong><p>Panjang sisinya <span class="math-proof">a</span>, sehingga luasnya <span class="math-proof">a²</span>.</p></div><div class="proof-summary-item"><span class="proof-step">2</span><strong>Persegi pada sisi b</strong><p>Panjang sisinya <span class="math-proof">b</span>, sehingga luasnya <span class="math-proof">b²</span>.</p></div><div class="proof-summary-item"><span class="proof-step">3</span><strong>Persegi pada sisi miring c</strong><p>Panjang sisinya <span class="math-proof">c</span>, sehingga luasnya <span class="math-proof">c²</span>.</p></div><div class="proof-summary-item"><span class="proof-step">4</span><strong>Bandingkan seluruh petak</strong><p>Jumlah luas dua persegi pada sisi siku-siku sama dengan luas persegi pada sisi miring: <span class="math-proof">a² + b² = c²</span>.</p></div></div></div></div><div class="proof-side"><div class="control-card"><h4>Atur ukuran segitiga siku-siku</h4><p class="muted" style="margin:0 0 7px">Gunakan <b>slider</b> atau <b>ketik langsung angkanya</b>. Nilai dapat berupa bilangan desimal agar penyelidikan lebih variatif.</p><div class="slider-row"><label for="aRange"><b>a</b></label><input id="aRange" type="range" min="1" max="50" step="0.1" value="3.7" aria-label="Ubah sisi a"><input id="aInput" type="number" min="1" max="50" step="0.1" value="3.7" aria-label="Input sisi a"></div><div class="slider-row"><label for="bRange"><b>b</b></label><input id="bRange" type="range" min="1" max="50" step="0.1" value="4.6" aria-label="Ubah sisi b"><input id="bInput" type="number" min="1" max="50" step="0.1" value="4.6" aria-label="Input sisi b"></div><div class="triple-values"><span>Sisi a<b id="aOut">3.7</b></span><span>Sisi b<b id="bOut">4.6</b></span><span>Sisi c<b id="cOut">5.9</b></span></div><div class="proof-actions" style="margin-top:10px"><button class="btn" id="toggleArea">▦ Sembunyikan luas</button><button class="btn" id="toggleLabels">Aa Sembunyikan label</button><button class="btn" id="randomTri">🎲 Acak</button></div></div><div class="control-card"><div class="metric-grid"><div class="metric"><span>a²</span><b id="a2Val">13.69</b></div><div class="metric"><span>b²</span><b id="b2Val">21.16</b></div><div class="metric"><span>c²</span><b id="c2Val">34.85</b></div></div><div class="formula-box" style="font-size:24px;margin-top:9px" id="relationBox">13.69 + 21.16 = 34.85 ✓</div><button class="btn save-lkm-btn" id="pushDataToLkm" type="button">＋ Masukkan Data ke Lembar Kerja</button><p class="explore-note">Coba beberapa pasangan nilai <b>a</b> dan <b>b</b>, termasuk bilangan desimal. Masukkan hasilnya ke tabel penyelidikan untuk memeriksa apakah hubungan luas selalu tetap.</p></div><div class="proof-explain" id="proofExplain"><b>Dari konteks ke pembuktian</b><div class="eq">a² + b² = c²</div><span>Pada model tangga, <b>a</b> menyatakan tinggi, <b>b</b> menyatakan jarak mendatar, dan <b>c</b> menyatakan panjang tangga. Jika luas persegi pada sisi <b>a</b> dan <b>b</b> dijumlahkan, hasilnya sama dengan luas persegi pada sisi <b>c</b>.</span></div></div></div></section>
+<section class="panel" id="simulasi"><div class="proof-layout"><div class="card"><div><span class="badge">📐 Eksplorasi Interaktif</span><h2 style="margin:8px 0 0">Eksplorasi Utama: Pendekatan Luas Sisi</h2><p class="muted" style="margin:6px 0 0">Geser slider untuk mengubah panjang sisi siku-siku <b>a</b> dan <b>b</b>. Nilainya tidak harus selalu bilangan bulat. Amati luas persegi pada ketiga sisi segitiga siku-siku untuk melihat apakah hubungan luasnya tetap konsisten.</p></div><div class="proof-stage" id="proofStage"><svg id="proofSvg" viewBox="0 0 920 700" preserveAspectRatio="xMidYMid meet" aria-label="Simulasi luas sisi Teorema Pythagoras"></svg></div><div class="control-card" style="margin-top:12px"><h4>Ringkasan bukti melalui luas</h4><div class="proof-summary-grid"><div class="proof-summary-item"><span class="proof-step">1</span><strong>Persegi pada sisi a</strong><p>Panjang sisinya <span class="math-proof">a</span>, sehingga luasnya <span class="math-proof">a²</span>.</p></div><div class="proof-summary-item"><span class="proof-step">2</span><strong>Persegi pada sisi b</strong><p>Panjang sisinya <span class="math-proof">b</span>, sehingga luasnya <span class="math-proof">b²</span>.</p></div><div class="proof-summary-item"><span class="proof-step">3</span><strong>Persegi pada sisi miring c</strong><p>Panjang sisinya <span class="math-proof">c</span>, sehingga luasnya <span class="math-proof">c²</span>.</p></div><div class="proof-summary-item"><span class="proof-step">4</span><strong>Bandingkan seluruh petak</strong><p>Jumlah luas dua persegi pada sisi siku-siku sama dengan luas persegi pada sisi miring: <span class="math-proof">a² + b² = c²</span>.</p></div></div></div></div><div class="proof-side"><div class="control-card" id="triangleControls"><h4>Atur ukuran segitiga siku-siku</h4><p class="muted" style="margin:0 0 7px">Gunakan <b>slider</b> atau <b>ketik langsung angkanya</b>. Nilai dapat berupa bilangan desimal agar penyelidikan lebih variatif.</p><div class="slider-row"><label for="aRange"><b>a</b></label><input id="aRange" type="range" min="1" max="50" step="0.1" value="3.7" aria-label="Ubah sisi a"><input id="aInput" type="number" min="1" max="50" step="0.1" value="3.7" aria-label="Input sisi a"></div><div class="slider-row"><label for="bRange"><b>b</b></label><input id="bRange" type="range" min="1" max="50" step="0.1" value="4.6" aria-label="Ubah sisi b"><input id="bInput" type="number" min="1" max="50" step="0.1" value="4.6" aria-label="Input sisi b"></div><div class="triple-values"><span>Sisi a<b id="aOut">3.7</b></span><span>Sisi b<b id="bOut">4.6</b></span><span>Sisi c<b id="cOut">5.9</b></span></div><div class="proof-actions" style="margin-top:10px"><button class="btn" id="toggleArea">▦ Sembunyikan luas</button><button class="btn" id="toggleLabels">Aa Sembunyikan label</button></div></div><div class="control-card"><div class="metric-grid"><div class="metric"><span>a²</span><b id="a2Val">13.69</b></div><div class="metric"><span>b²</span><b id="b2Val">21.16</b></div><div class="metric"><span>c²</span><b id="c2Val">34.85</b></div></div><div class="formula-box" style="font-size:24px;margin-top:9px" id="relationBox">13.69 + 21.16 = 34.85 ✓</div><button class="btn save-lkm-btn" id="pushDataToLkm" type="button">＋ Masukkan Data ke Lembar Kerja</button><p class="explore-note">Coba beberapa pasangan nilai <b>a</b> dan <b>b</b>, termasuk bilangan desimal. Masukkan hasilnya ke tabel penyelidikan untuk memeriksa apakah hubungan luas selalu tetap.</p></div><div class="proof-explain" id="proofExplain"><b>Dari konteks ke pembuktian</b><div class="eq">a² + b² = c²</div><span>Pada model tangga, <b>a</b> menyatakan tinggi, <b>b</b> menyatakan jarak mendatar, dan <b>c</b> menyatakan panjang tangga. Jika luas persegi pada sisi <b>a</b> dan <b>b</b> dijumlahkan, hasilnya sama dengan luas persegi pada sisi <b>c</b>.</span></div></div></div></section>
 <section class="panel" id="lkm"><div class="lkm-toolbar"><div class="lkm-toolbar-text"><b>📝 Lembar Kerja Penyelidikan</b><span>Enam tahap Discovery Learning untuk menemukan dan membuktikan Teorema Pythagoras.</span></div><button class="print-pdf-btn" id="printLkmBtn" type="button">🖨️ Cetak / Simpan PDF</button></div><div class="discovery-wrap"><div class="steps" id="steps"><button class="step active" data-step="0">1. Stimulation</button><button class="step" data-step="1">2. Problem Statement</button><button class="step" data-step="2">3. Data Collection</button><button class="step" data-step="3">4. Data Processing</button><button class="step" data-step="4">5. Verification</button><button class="step" data-step="5">6. Generalization</button></div><div class="card">
 <div class="step-panel active" data-step-panel="0"><span class="badge yellow">Discovery Learning • Tahap 1</span><h2>Stimulation — Amati dan bangun rasa ingin tahu</h2><div class="activity"><h4>A. Amati masalah jalan pintas</h4><p>Bandingkan berjalan mengikuti dua sisi lapangan dengan berjalan melalui diagonal. Apa yang ingin kamu ketahui?</p><textarea data-save="stimulus" placeholder="Hal yang membuat saya penasaran..."></textarea></div><div class="activity"><h4>B. Kesadaran belajar</h4><p>Apa yang akan kamu lakukan agar kesimpulanmu tidak hanya berdasarkan tebakan?</p><textarea data-save="mindful" placeholder="Saya akan mengubah ukuran, mencatat data, membandingkan luas, lalu memeriksa pembuktiannya..."></textarea></div></div>
 <div class="step-panel" data-step-panel="1"><span class="badge yellow">Discovery Learning • Tahap 2</span><h2>Problem Statement — Rumuskan masalah</h2><div class="activity"><h4>Pertanyaan penyelidikan</h4><textarea data-save="problem">Bagaimana hubungan luas persegi pada ketiga sisi segitiga siku-siku, dan bagaimana hubungan tersebut dapat dibuktikan?</textarea></div><div class="activity"><h4>Dugaan</h4><p>Tuliskan dugaan hubungan antara a, b, dan c beserta alasan awalmu.</p><textarea data-save="hypothesis"></textarea></div></div>
-<div class="step-panel" data-step-panel="2"><span class="badge yellow">Discovery Learning • Tahap 3</span><h2>Data Collection — Kumpulkan bukti empiris</h2><div class="activity"><h4>A. Uji beberapa segitiga</h4><p>Gunakan tab Eksplorasi. Pilih lima pasangan a dan b, lalu catat hasilnya.</p><div style="overflow:auto"><table class="data-table"><thead><tr><th>No.</th><th>a</th><th>b</th><th>a²</th><th>b²</th><th>c²</th><th>a²+b²</th></tr></thead><tbody id="lkmDataRows"></tbody></table></div><div class="data-collection-actions"><button class="btn" id="fillCurrentData" style="background:#1767c9;color:#fff">+ Masukkan data simulasi saat ini</button><button class="btn clear-data-btn" id="clearDataCollection" type="button">🗑️ Hapus Data</button></div></div><div class="activity"><h4>B. Catat pola</h4><textarea data-save="dataPattern" placeholder="Dari data saya melihat bahwa..."></textarea></div></div>
+<div class="step-panel" data-step-panel="2"><span class="badge yellow">Discovery Learning • Tahap 3</span><h2>Data Collection — Kumpulkan bukti empiris</h2><div class="activity"><h4>A. Uji beberapa segitiga</h4><p>Gunakan tab Eksplorasi. Pilih lima pasangan a dan b, lalu catat hasilnya.</p><div class="data-table-wrap"><table class="data-table"><thead><tr><th>No.</th><th>a</th><th>b</th><th>a²</th><th>b²</th><th>c²</th><th>a²+b²</th></tr></thead><tbody id="lkmDataRows"></tbody></table></div><div class="data-collection-actions"><button class="btn" id="fillCurrentData" style="background:#1767c9;color:#fff">+ Masukkan data simulasi saat ini</button><button class="btn clear-data-btn" id="clearDataCollection" type="button">🗑️ Hapus Data</button></div></div><div class="activity"><h4>B. Catat pola</h4><textarea data-save="dataPattern" placeholder="Dari data saya melihat bahwa..."></textarea></div></div>
 <div class="step-panel" data-step-panel="3"><span class="badge yellow">Discovery Learning • Tahap 4</span><h2>Data Processing — Olah data dan cari hubungan</h2><div class="activity"><h4>A. Bandingkan tiga luas</h4><p>Bandingkan a², b², dan c² pada setiap baris. Hubungan apa yang selalu muncul?</p><textarea data-save="compareAreas"></textarea></div><div class="activity"><h4>B. Dari contoh ke dugaan umum</h4><p>Apakah banyak contoh sudah cukup untuk membuktikan teorema? Jelaskan.</p><textarea data-save="exampleVsProof"></textarea></div><div class="activity"><h4>C. Hubungkan data dengan luas persegi</h4><p>Jelaskan mengapa <b>a²</b> dan <b>b²</b> menyatakan luas dua persegi pada sisi siku-siku, sedangkan <b>c²</b> menyatakan luas persegi pada sisi miring. Apa hubungan yang kamu temukan?</p><textarea data-save="twoWays" placeholder="Hubungan luas yang saya temukan adalah..."></textarea></div></div>
 <div class="step-panel" data-step-panel="4"><span class="badge yellow">Discovery Learning • Tahap 5</span><h2>Verification — Uji pembuktianmu</h2><div class="activity"><h4>Periksa 4 pernyataan berikut</h4><label class="option"><input type="checkbox" data-verify="0"> Luas persegi pada sisi <b>a</b> adalah <b>a²</b>.</label><label class="option"><input type="checkbox" data-verify="1"> Luas persegi pada sisi <b>b</b> adalah <b>b²</b>.</label><label class="option"><input type="checkbox" data-verify="2"> Luas persegi pada sisi miring adalah <b>c</b>.</label><label class="option"><input type="checkbox" data-verify="3"> Dari perbandingan luas diperoleh <b>a² + b² = c²</b>.</label><button class="btn" id="verifyBtn" style="background:#1767c9;color:white">Periksa verifikasi</button><div id="verifyFeedback" style="margin-top:8px;font-size:12px"></div></div><div class="activity"><h4>Perbaiki dugaan</h4><textarea data-save="revision" placeholder="Setelah melihat hubungan luas, saya menyimpulkan..."></textarea></div></div>
 <div class="step-panel" data-step-panel="5"><span class="badge yellow">Discovery Learning • Tahap 6</span><h2>Generalization — Rumuskan konsep</h2><div class="activity"><h4>Teorema dengan bahasamu sendiri</h4><textarea data-save="generalization" placeholder="Pada setiap segitiga siku-siku..."></textarea></div><div class="activity"><h4>Tuliskan bentuk simbolik</h4><textarea data-save="symbolic" placeholder="a² + b² = c², dengan ..."></textarea></div><div class="activity"><h4>Refleksi bermakna</h4><p>Apa bedanya mengetahui rumus Pythagoras dan memahami mengapa rumus itu benar?</p><textarea data-save="reflection"></textarea></div><button class="btn" onclick="goTab('kuis')" style="background:#24a56a;color:white">Lanjut ke Kuis →</button></div>
@@ -1229,7 +1339,13 @@ function centerPoint(arr){return{x:arr.reduce((s,p)=>s+p.x,0)/arr.length,y:arr.r
 function gridLines(points,sideUnits,color,id){let s='';const whole=Math.floor(sideUnits+1e-9);const opacity=sideUnits>30?.30:sideUnits>20?.34:sideUnits>12?.38:.44;for(let k=1;k<=whole;k++){if(k>=sideUnits-1e-9)break;const t=k/sideUnits;const pA=lerpPoint(points[0],points[1],t),pB=lerpPoint(points[3],points[2],t),pC=lerpPoint(points[0],points[3],t),pD=lerpPoint(points[1],points[2],t);s+=`<line x1="${pA.x}" y1="${pA.y}" x2="${pB.x}" y2="${pB.y}" stroke="${color}" stroke-width="1" opacity="${opacity}" shape-rendering="geometricPrecision" vector-effect="non-scaling-stroke"/><line x1="${pC.x}" y1="${pC.y}" x2="${pD.x}" y2="${pD.y}" stroke="${color}" stroke-width="1" opacity="${opacity}" shape-rendering="geometricPrecision" vector-effect="non-scaling-stroke"/>`}return `<g clip-path="url(#${id})">${s}</g>`}
 function boundsOf(points){return points.reduce((b,p)=>({minX:Math.min(b.minX,p.x),maxX:Math.max(b.maxX,p.x),minY:Math.min(b.minY,p.y),maxY:Math.max(b.maxY,p.y)}),{minX:Infinity,maxX:-Infinity,minY:Infinity,maxY:-Infinity})}
 function mapPoint(p,sc,tx,ty){return{x:tx+p.x*sc,y:ty+p.y*sc}}
-function labelChip(x,y,text,strokeColor,textColor,font=18){const w=Math.max(92,text.length*(font*.62)+28),h=font+20;return `<g transform="translate(${x-w/2} ${y-h/2})" filter="url(#shadow)"><rect width="${w}" height="${h}" rx="${Math.min(14,h/2)}" fill="#ffffff" fill-opacity=".98" stroke="${strokeColor}" stroke-width="2.1"/><text x="${w/2}" y="${h/2+font*.34}" text-anchor="middle" font-size="${font}" font-weight="1000" fill="${textColor}">${text}</text></g>`}
+function labelMetrics(text,font=18,minW=78){return{w:Math.max(minW,text.length*(font*.60)+24),h:font+18}}
+function labelRect(x,y,m){return{x:x-m.w/2,y:y-m.h/2,w:m.w,h:m.h}}
+function rectOverlap(a,b,gap=7){return !(a.x+a.w+gap<=b.x||b.x+b.w+gap<=a.x||a.y+a.h+gap<=b.y||b.y+b.h+gap<=a.y)}
+function clampLabelCenter(p,m,b){return{x:Math.max(b.x+m.w/2,Math.min(b.x+b.w-m.w/2,p.x)),y:Math.max(b.y+m.h/2,Math.min(b.y+b.h-m.h/2,p.y))}}
+function chooseLabel(text,font,candidates,occupied,bounds,minW=78){const m=labelMetrics(text,font,minW);let best=null,bestHits=1e9;const nudges=[{x:0,y:0},{x:0,y:-46},{x:0,y:46},{x:-54,y:0},{x:54,y:0},{x:-42,y:-38},{x:42,y:-38},{x:-42,y:38},{x:42,y:38}];for(const base of candidates){for(const n of nudges){const p=clampLabelCenter({x:base.x+n.x,y:base.y+n.y},m,bounds),r=labelRect(p.x,p.y,m);const hits=occupied.reduce((s,o)=>s+(rectOverlap(r,o)?1:0),0);if(hits===0){occupied.push(r);return{x:p.x,y:p.y,m}}if(hits<bestHits){bestHits=hits;best={x:p.x,y:p.y,m,r}}}}if(best){occupied.push(best.r);return{x:best.x,y:best.y,m:best.m}}return{x:bounds.x+bounds.w/2,y:bounds.y+bounds.h/2,m}}
+function labelChipPlaced(p,text,strokeColor,textColor,font=18){const {w,h}=p.m;return `<g transform="translate(${p.x-w/2} ${p.y-h/2})" filter="url(#shadow)"><rect width="${w}" height="${h}" rx="${Math.min(14,h/2)}" fill="#ffffff" fill-opacity=".98" stroke="${strokeColor}" stroke-width="2.1"/><text x="${w/2}" y="${h/2+font*.34}" text-anchor="middle" font-size="${font}" font-weight="1000" fill="${textColor}">${text}</text></g>`}
+function areaTextMetrics(text,font){return{w:text.length*font*.58,h:font*1.15}}
 function renderSquares(){
   const svg=$('#proofSvg');
   const mobile=window.innerWidth<=760;
@@ -1241,22 +1357,80 @@ function renderSquares(){
   const nsqA=squarePoints(n0,nA,1),nsqB=squarePoints(nB,n0,1),nsqC=squarePoints(nA,nB,1);
   const allPts=[...nsqA,...nsqB,...nsqC,n0,nA,nB];
   const box=boundsOf(allPts);
-  /* Safe zone: bagian atas khusus keterangan, bagian bawah khusus hubungan luas. */
-  const geomArea=mobile?{x:36,y:118,w:548,h:500}:{x:24,y:92,w:620,h:470};
-  const pad=mobile?14:12;
-  const sc=Math.min((geomArea.w-2*pad)/(box.maxX-box.minX),(geomArea.h-2*pad)/(box.maxY-box.minY),mobile?48:54);
+
+  /* Zona aman: teks petak di atas, hubungan luas di bawah. Geometri memakai ruang terbesar yang aman. */
+  const geomArea=mobile?{x:38,y:122,w:544,h:510}:{x:42,y:108,w:748,h:454};
+  const pad=mobile?16:18;
+  const sc=Math.min((geomArea.w-2*pad)/(box.maxX-box.minX),(geomArea.h-2*pad)/(box.maxY-box.minY));
   const tx=geomArea.x+pad+(geomArea.w-2*pad-(box.maxX-box.minX)*sc)/2-box.minX*sc;
   const ty=geomArea.y+pad+(geomArea.h-2*pad-(box.maxY-box.minY)*sc)/2-box.minY*sc;
   const p0=mapPoint(n0,sc,tx,ty),pA=mapPoint(nA,sc,tx,ty),pB=mapPoint(nB,sc,tx,ty);
   const sqA=nsqA.map(p=>mapPoint(p,sc,tx,ty)),sqB=nsqB.map(p=>mapPoint(p,sc,tx,ty)),sqC=nsqC.map(p=>mapPoint(p,sc,tx,ty));
   const ca=centerPoint(sqA),cb=centerPoint(sqB),cc=centerPoint(sqC);
+  const midA={x:(p0.x+pA.x)/2,y:(p0.y+pA.y)/2};
+  const midB={x:(pB.x+p0.x)/2,y:(pB.y+p0.y)/2};
   const midC={x:(pA.x+pB.x)/2,y:(pA.y+pB.y)/2};
   const cNorm={x:B/c,y:-A/c};
-  const font=mobile?18:17, areaFont=mobile?Math.max(17,Math.min(24,sc*.78)):Math.max(16,Math.min(24,sc*.76));
-  const offset=mobile?42:38;
-  const aLabel={x:(p0.x+pA.x)/2,y:p0.y-offset};
-  const bLabel={x:p0.x-(mobile?64:68),y:(p0.y+pB.y)/2};
-  const cLabel={x:midC.x+cNorm.x*(mobile?54:50),y:midC.y+cNorm.y*(mobile?54:50)};
+  const sidePx={a:A*sc,b:B*sc,c:c*sc};
+  const labelBounds={x:22,y:geomArea.y+2,w:VW-44,h:geomArea.h-4};
+  const occupied=[];
+  const font=mobile?17:17;
+  const areaDesired=mobile?22:22;
+  const areaFallback=[];
+  let areaSvg='';
+
+  const areaSpecs=[
+    {key:'a',text:`a² = ${fmt(A*A)}`,center:ca,side:sidePx.a,color:'#0c548e'},
+    {key:'b',text:`b² = ${fmt(B*B)}`,center:cb,side:sidePx.b,color:'#176d43'},
+    {key:'c',text:`c² = ${fmt(A*A+B*B)}`,center:cc,side:sidePx.c,color:'#9f2d2d'}
+  ];
+  if(showArea){
+    for(const ar of areaSpecs){
+      const maxW=Math.max(1,ar.side*.76),maxH=Math.max(1,ar.side*.36);
+      const fitted=Math.min(areaDesired,maxW/(Math.max(4,ar.text.length)*.58),maxH/1.15);
+      if(ar.side>=72&&fitted>=11){
+        const af=Math.max(11,fitted),m=areaTextMetrics(ar.text,af),r={x:ar.center.x-m.w/2,y:ar.center.y-m.h/2,w:m.w,h:m.h};
+        occupied.push(r);
+        areaSvg+=`<text x="${ar.center.x}" y="${ar.center.y+af*.34}" text-anchor="middle" font-size="${af}" font-weight="1000" fill="${ar.color}">${ar.text}</text>`;
+      }else{
+        areaFallback.push(ar);
+      }
+    }
+  }
+
+  /* Jika sebuah persegi terlalu kecil untuk memuat teks luas, tampilkan badge kecil di rel atas. */
+  if(showArea&&areaFallback.length){
+    const legendY=88;
+    const gap=10;
+    const items=areaFallback.map(ar=>{const f=mobile?13:13;const m=labelMetrics(ar.text,f,94);return{...ar,f,m}});
+    const total=items.reduce((s,it)=>s+it.m.w,0)+gap*(items.length-1);
+    let x=(VW-total)/2;
+    for(const it of items){
+      const cx=x+it.m.w/2,cy=legendY;
+      const r=labelRect(cx,cy,it.m);occupied.push(r);
+      areaSvg+=`<g transform="translate(${cx-it.m.w/2} ${cy-it.m.h/2})"><rect width="${it.m.w}" height="${it.m.h}" rx="${it.m.h/2}" fill="#fff" fill-opacity=".96" stroke="${it.color}" stroke-width="1.7"/><text x="${it.m.w/2}" y="${it.m.h/2+it.f*.34}" text-anchor="middle" font-size="${it.f}" font-weight="950" fill="${it.color}">${it.text}</text></g>`;
+      x+=it.m.w+gap;
+    }
+  }
+
+  const insetA=Math.max(24,Math.min(38,sidePx.a*.22));
+  const insetB=Math.max(24,Math.min(38,sidePx.b*.22));
+  const insetC=Math.max(24,Math.min(38,sidePx.c*.18));
+  const aCandidates=sidePx.a>=92?
+    [{x:midA.x,y:midA.y+insetA},{x:midA.x,y:midA.y-36},{x:ca.x,y:Math.min(labelBounds.y+labelBounds.h-24,ca.y+sidePx.a*.36)}]:
+    [{x:midA.x,y:midA.y-42},{x:midA.x+58,y:midA.y+28},{x:midA.x-58,y:midA.y+28}];
+  const bCandidates=sidePx.b>=92?
+    [{x:midB.x-insetB,y:midB.y},{x:midB.x+40,y:midB.y},{x:cb.x-sidePx.b*.34,y:cb.y}]:
+    [{x:midB.x+48,y:midB.y},{x:midB.x-58,y:midB.y-28},{x:midB.x-58,y:midB.y+28}];
+  const cCandidates=sidePx.c>=105?
+    [{x:midC.x+cNorm.x*insetC,y:midC.y+cNorm.y*insetC},{x:midC.x-cNorm.x*42,y:midC.y-cNorm.y*42},{x:cc.x+cNorm.x*sidePx.c*.28,y:cc.y+cNorm.y*sidePx.c*.28}]:
+    [{x:midC.x-cNorm.x*48,y:midC.y-cNorm.y*48},{x:midC.x+cNorm.x*58,y:midC.y+cNorm.y*58},{x:midC.x+70,y:midC.y-45}];
+
+  const aText=`a = ${fmt(A)}`,bText=`b = ${fmt(B)}`,cText=`c = ${fmt(c)}`;
+  const aPlaced=chooseLabel(aText,font,aCandidates,occupied,labelBounds,mobile?76:80);
+  const bPlaced=chooseLabel(bText,font,bCandidates,occupied,labelBounds,mobile?76:80);
+  const cPlaced=chooseLabel(cText,font,cCandidates,occupied,labelBounds,mobile?82:86);
+
   const relation=`${fmt(A*A)} + ${fmt(B*B)} = ${fmt(A*A+B*B)}`;
   const relationY=mobile?718:590;
   const boxW=mobile?Math.min(400,Math.max(280,relation.length*11+34)):Math.min(300,Math.max(225,relation.length*10+24));
@@ -1264,6 +1438,7 @@ function renderSquares(){
   const boxH=mobile?106:92;
   const relFont=Math.max(mobile?14:13.5,Math.min(mobile?20:18,(boxW-34)/(Math.max(10,relation.length)*.64)));
   const noteFont=mobile?18:17;
+
   svg.innerHTML=`
 <defs>
   <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#173f72" flood-opacity=".14"/></filter>
@@ -1274,7 +1449,7 @@ function renderSquares(){
 </defs>
 <rect x="14" y="14" width="${VW-28}" height="${VH-28}" rx="26" fill="url(#proofBg)"/>
 <text x="${mobile?30:42}" y="${mobile?54:55}" font-size="${noteFont}" font-weight="900" fill="#173f72">Setiap petak kecil ≈ 1 satuan²</text>
-<line x1="${geomArea.x}" y1="${geomArea.y-18}" x2="${geomArea.x+geomArea.w}" y2="${geomArea.y-18}" stroke="#dce9f5" stroke-width="1.5"/>
+<line x1="${geomArea.x}" y1="${geomArea.y-14}" x2="${geomArea.x+geomArea.w}" y2="${geomArea.y-14}" stroke="#dce9f5" stroke-width="1.5"/>
 <polygon points="${pts(sqA)}" fill="#7cc8f8" fill-opacity=".74" stroke="#1b66c9" stroke-width="3.2" stroke-linejoin="miter" filter="url(#shadow)"/>
 ${gridLines(sqA,A,'#0e5799','clipA')}
 <polygon points="${pts(sqB)}" fill="#88ddb0" fill-opacity=".74" stroke="#238657" stroke-width="3.2" stroke-linejoin="miter" filter="url(#shadow)"/>
@@ -1282,16 +1457,35 @@ ${gridLines(sqB,B,'#176d43','clipB')}
 <polygon points="${pts(sqC)}" fill="#f58a8a" fill-opacity=".76" stroke="#cb4040" stroke-width="3.2" stroke-linejoin="miter" filter="url(#shadow)"/>
 ${gridLines(sqC,c,'#a62c2c','clipC')}
 <polygon points="${pts([p0,pA,pB])}" fill="#ffffff" stroke="#173f72" stroke-width="4.5" stroke-linejoin="miter" filter="url(#shadow)"/>
-<path d="M ${p0.x+22} ${p0.y} L ${p0.x+22} ${p0.y-22} L ${p0.x} ${p0.y-22}" fill="none" stroke="#173f72" stroke-width="3.8"/>
-${showArea?`<text x="${ca.x}" y="${ca.y+areaFont*.34}" text-anchor="middle" font-size="${areaFont}" font-weight="1000" fill="#0c548e">a² = ${fmt(A*A)}</text><text x="${cb.x}" y="${cb.y+areaFont*.34}" text-anchor="middle" font-size="${areaFont}" font-weight="1000" fill="#176d43">b² = ${fmt(B*B)}</text><text x="${cc.x}" y="${cc.y+areaFont*.34}" text-anchor="middle" font-size="${areaFont}" font-weight="1000" fill="#9f2d2d">c² = ${fmt(A*A+B*B)}</text>`:''}
-${showLabels?`${labelChip(aLabel.x,aLabel.y,`a = ${fmt(A)}`,'#1b66c9','#1b66c9',font)}${labelChip(bLabel.x,bLabel.y,`b = ${fmt(B)}`,'#238657','#238657',font)}${labelChip(cLabel.x,cLabel.y,`c = ${fmt(c)}`,'#cb4040','#b33131',font)}`:''}
+<path d="M ${p0.x+Math.min(22,sidePx.a*.24)} ${p0.y} L ${p0.x+Math.min(22,sidePx.a*.24)} ${p0.y-Math.min(22,sidePx.b*.24)} L ${p0.x} ${p0.y-Math.min(22,sidePx.b*.24)}" fill="none" stroke="#173f72" stroke-width="3.8"/>
+${areaSvg}
+${showLabels?`${labelChipPlaced(aPlaced,aText,'#1b66c9','#1b66c9',font)}${labelChipPlaced(bPlaced,bText,'#238657','#238657',font)}${labelChipPlaced(cPlaced,cText,'#cb4040','#b33131',font)}`:''}
 <g transform="translate(${boxX} ${relationY})"><rect width="${boxW}" height="${boxH}" rx="18" fill="#ffffff" stroke="#cfe0ef" stroke-width="2"/><text x="${boxW/2}" y="${mobile?30:29}" text-anchor="middle" font-size="${mobile?17:15}" font-weight="900" fill="#173f72">Hubungan luas</text><text x="${boxW/2}" y="${mobile?66:60}" text-anchor="middle" font-size="${relFont}" font-weight="1000" fill="#1767c9">${relation}</text><text x="${boxW/2}" y="${mobile?88:79}" text-anchor="middle" font-size="${mobile?14:12.8}" font-weight="800" fill="#557086">a² + b² = c²</text></g>`;
 }
 function clampSide(v){if(!Number.isFinite(v))return null;return Math.min(50,Math.max(1,v))}
 function syncSide(which,val){const clean=clampSide(parseFloat(val));if(clean===null)return;if(which==='a'){A=clean;$('#aRange').value=clean;$('#aInput').value=fmt(clean)}else{B=clean;$('#bRange').value=clean;$('#bInput').value=fmt(clean)}updateSim()}
 function updateSim(){const c=Math.hypot(A,B),c2=A*A+B*B;$('#aOut').textContent=fmt(A);$('#bOut').textContent=fmt(B);$('#cOut').textContent=fmt(c);$('#a2Val').textContent=fmt(A*A);$('#b2Val').textContent=fmt(B*B);$('#c2Val').textContent=fmt(c2);$('#relationBox').textContent=`${fmt(A*A)} + ${fmt(B*B)} = ${fmt(c2)} ✓`;renderSquares();$('#proofExplain').innerHTML='<b>Dari konteks ke pembuktian</b><div class="eq">a² + b² = c²</div><span>Pada model tangga, <b>a</b> menyatakan tinggi, <b>b</b> menyatakan jarak mendatar, dan <b>c</b> menyatakan panjang tangga. Jumlah luas persegi pada sisi <b>a</b> dan <b>b</b> selalu sama dengan luas persegi pada sisi <b>c</b>.</span>'}
-$('#aRange').oninput=e=>syncSide('a',e.target.value);$('#bRange').oninput=e=>syncSide('b',e.target.value);$('#aInput').oninput=e=>syncSide('a',e.target.value);$('#bInput').oninput=e=>syncSide('b',e.target.value);$('#aInput').onchange=e=>syncSide('a',e.target.value);$('#bInput').onchange=e=>syncSide('b',e.target.value);$('#toggleArea').onclick=()=>{showArea=!showArea;$('#toggleArea').textContent=showArea?'▦ Sembunyikan luas':'▦ Tampilkan luas';updateSim()};$('#toggleLabels').onclick=()=>{showLabels=!showLabels;$('#toggleLabels').textContent=showLabels?'Aa Sembunyikan label':'Aa Tampilkan label';updateSim()};$('#randomTri').onclick=()=>{const rand=()=>Math.round((1+Math.random()*49)*10)/10;syncSide('a',rand());syncSide('b',rand())};
+$('#aRange').oninput=e=>syncSide('a',e.target.value);$('#bRange').oninput=e=>syncSide('b',e.target.value);$('#aInput').oninput=e=>syncSide('a',e.target.value);$('#bInput').oninput=e=>syncSide('b',e.target.value);$('#aInput').onchange=e=>syncSide('a',e.target.value);$('#bInput').onchange=e=>syncSide('b',e.target.value);$('#toggleArea').onclick=()=>{showArea=!showArea;$('#toggleArea').textContent=showArea?'▦ Sembunyikan luas':'▦ Tampilkan luas';updateSim()};$('#toggleLabels').onclick=()=>{showLabels=!showLabels;$('#toggleLabels').textContent=showLabels?'Aa Sembunyikan label':'Aa Tampilkan label';updateSim()};
 let simResizeTimer=null;window.addEventListener('resize',()=>{clearTimeout(simResizeTimer);simResizeTimer=setTimeout(()=>{try{updateSim()}catch(e){}},120)});
+
+/* V40: pada mobile, kontrol slider ditempatkan tepat di bawah gambar simulasi. */
+const simMobileMQ=window.matchMedia('(max-width:760px)');
+function placeTriangleControls(){
+  const controls=$('#triangleControls');
+  const stage=$('#proofStage');
+  const side=$('#simulasi .proof-side');
+  if(!controls||!stage||!side)return;
+  if(simMobileMQ.matches){
+    if(stage.nextElementSibling!==controls)stage.insertAdjacentElement('afterend',controls);
+  }else{
+    if(side.firstElementChild!==controls)side.insertBefore(controls,side.firstElementChild);
+  }
+}
+placeTriangleControls();
+if(typeof simMobileMQ.addEventListener==='function')simMobileMQ.addEventListener('change',placeTriangleControls);
+else if(typeof simMobileMQ.addListener==='function')simMobileMQ.addListener(placeTriangleControls);
+window.addEventListener('orientationchange',()=>setTimeout(placeTriangleControls,120));
+
 // LKM
 let stepIndex=0;function setStep(i){stepIndex=Math.max(0,Math.min(5,i));$$('.step').forEach((b,j)=>{b.classList.toggle('active',j===stepIndex);b.classList.toggle('done',j<stepIndex)});$$('.step-panel').forEach((p,j)=>p.classList.toggle('active',j===stepIndex));$('#prevStep').disabled=stepIndex===0;$('#nextStep').textContent=stepIndex===5?'Selesai ✓':'Berikutnya →'}
 $$('.step').forEach(b=>b.onclick=()=>setStep(+b.dataset.step));$('#prevStep').onclick=()=>setStep(stepIndex-1);$('#nextStep').onclick=()=>{if(stepIndex<5)setStep(stepIndex+1);else{toast('Lembar kerja selesai. Lanjutkan ke kuis!');goTab('kuis')}};
